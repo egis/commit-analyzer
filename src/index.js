@@ -1,4 +1,13 @@
 const { parseRawCommit } = require('conventional-changelog/lib/git')
+const typeMap = {
+  chore: 'patch',
+  docs: 'patch',
+  feat: 'minor',
+  fix: 'patch',
+  perf: 'patch',
+  refactor: 'patch',
+  test: 'patch'
+}
 
 module.exports = function (pluginConfig, {commits}, cb) {
   let type = null
@@ -15,9 +24,9 @@ module.exports = function (pluginConfig, {commits}, cb) {
       return false
     }
 
-    if (commit.type === 'feat') type = 'minor'
-
-    if (!type && commit.type === 'fix') type = 'patch'
+    if (commit.type in typeMap) {
+      type = typeMap[commit.type]
+    }
 
     return true
   })

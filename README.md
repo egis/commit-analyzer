@@ -5,3 +5,24 @@
 [![Dependency Status](https://david-dm.org/semantic-release/commit-analyzer.svg)](https://david-dm.org/semantic-release/commit-analyzer)
 [![devDependency Status](https://david-dm.org/semantic-release/commit-analyzer/dev-status.svg)](https://david-dm.org/semantic-release/commit-analyzer#info=devDependencies)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+
+## Major Releases
+
+- Breaking Changes
+
+## Minor Releases
+
+- feat
+
+SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
+
+## Patch Releases
+
+- chore
+- docs
+- fix
+- perf
+- refactor
+- test
+
+SEE: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#type
