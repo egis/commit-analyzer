@@ -21,9 +21,12 @@ module.exports = function (pluginConfig, _ref, cb) {
 
   commits.map(function (commit) {
     return parseRawCommit(commit.hash + '\n' + commit.message);
-  }).filter(function (commit) {
-    return !!commit;
   }).every(function (commit) {
+    if (!commit) {
+      type = 'patch';
+      return true;
+    }
+
     if (commit.breaks.length) {
       type = 'major';
       return false;
