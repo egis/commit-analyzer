@@ -127,5 +127,19 @@ test('derive version number from commits', (t) => {
     })
   })
 
+  t.test('unstructured -> patch release', (tt) => {
+    tt.plan(2)
+
+    analyzer({}, {
+      commits: [{
+        hash: 'asdf',
+        message: 'add email notifications yo'
+      }]
+    }, (err, type) => {
+      tt.error(err)
+      tt.is(type, 'patch')
+    })
+  })
+
   t.end()
 })

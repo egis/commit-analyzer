@@ -16,9 +16,12 @@ module.exports = function (pluginConfig, {commits}, cb) {
 
   .map((commit) => parseRawCommit(`${commit.hash}\n${commit.message}`))
 
-  .filter((commit) => !!commit)
-
   .every((commit) => {
+    if (!commit) {
+      type = 'patch'
+      return true
+    }
+
     if (commit.breaks.length) {
       type = 'major'
       return false
